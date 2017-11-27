@@ -28,15 +28,14 @@
     "ts-loader": "^3.1.0",
     "ts-node": "^3.0.4",
     "tslint": "^5.8.0",
-    "typed-screeps": "^1.0.3",
+    "typed-screeps": "git+https://github.com/screepers/typed-screeps.git#89c8e783dfe0c7c613caf9489dbd51fe8b13746a",
     "typescript": "^2.3.2",
     "typings": "^2.1.1",
     "webpack": "^2.5.1",
     "webpack-chain": "^3.2.0"
   },
   "dependencies": {
-    "@types/screeps-profiler": "^1.2.0",
-    "screeps-profiler": "^1.3.0",
+    "@types/screeps-profiler": "^1.2.1",
     "source-map": "^0.5.6"
   }
 }

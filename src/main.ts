@@ -6,6 +6,7 @@
 import CompositeController from "./Controllers/CompositeController";
 import CreepsPopulationController from "./Controllers/CreepsPopulationController";
 import GameController from "./Controllers/GameController";
+import MaintainersController from "./Controllers/MaintainersController";
 import RoleCreepsPopulationObserver from "./Creeps/RoleCreepsPopulationObserver";
 import TypeCreepsFactory from "./Creeps/TypeCreepsFactory";
 
@@ -16,6 +17,8 @@ const maintainersPopulationController = new CreepsPopulationController(
   new TypeCreepsFactory([WORK, CARRY, MOVE], "Maintainer", {memory: {role: "maintainer"}}, Game.spawns["Spawn1"])
 );
 composite.addController(maintainersPopulationController);
+
+composite.addController(new MaintainersController(Game.creeps));
 
 /**
  * Screeps system expects this "loop" method in main.js to run the
