@@ -27,7 +27,7 @@ export default class MaintainersController implements GameController {
           }
         });
         const receiver = receivers[0];
-        if (creep.transfer(receiver, RESOURCES_ALL) === ERR_NOT_IN_RANGE) {
+        if (creep.transfer(receiver, RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
           creep.moveTo(receiver);
         }
       }
