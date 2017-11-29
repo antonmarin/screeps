@@ -12,7 +12,7 @@
     "sourceMap": true,
     "baseUrl": "./src/",
     "outDir": "./tsc-out/",
-    "types": ["lodash", "typed-screeps", "screeps-profiler"]
+    "types": ["lodash", "typed-screeps"]
   },
   "compileOnSave": false,
   "include": [
