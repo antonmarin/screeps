@@ -12,12 +12,12 @@ import TypeCreepsFactory from "./Creeps/TypeCreepsFactory";
 
 const composite = new CompositeController();
 
+// Maintainers
 const maintainersPopulationController = new CreepsPopulationController(
   new RoleCreepsPopulationObserver(Game.creeps, 1),
   new TypeCreepsFactory([WORK, CARRY, MOVE], "Maintainer", {memory: {role: "maintainer"}}, Game.spawns["Spawn1"])
 );
 composite.addController(maintainersPopulationController);
-
 composite.addController(new MaintainersController(Game.creeps));
 
 /**

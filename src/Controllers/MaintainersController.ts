@@ -11,7 +11,7 @@ export default class MaintainersController implements GameController {
     for (const i in this.creeps) {
       const creep = this.creeps[i];
 
-      if (_.size(creep.carry) < creep.carryCapacity) {
+      if (creep.carry.energy < creep.carryCapacity) {
         const sources = creep.room.find(FIND_SOURCES_ACTIVE);
 
         const source = sources[0];
