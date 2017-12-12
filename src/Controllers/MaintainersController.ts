@@ -21,11 +21,17 @@ export default class MaintainersController implements GameController {
       } else {
         const receivers = creep.room.find(FIND_STRUCTURES, {
           filter: (receiver) => {
-            return (receiver.structureType == STRUCTURE_EXTENSION ||
-              receiver.structureType == STRUCTURE_SPAWN ||
-              receiver.structureType == STRUCTURE_TOWER) && receiver.energy < receiver.energyCapacity;
+            return (
+              receiver.structureType === STRUCTURE_EXTENSION ||
+              receiver.structureType === STRUCTURE_SPAWN ||
+              receiver.structureType === STRUCTURE_TOWER
+            ) && receiver.energy < receiver.energyCapacity;
           }
         });
+
+        if (receivers.length === 0) {
+          return;
+        }
         const receiver = receivers[0];
         if (creep.transfer(receiver, RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
           creep.moveTo(receiver);
