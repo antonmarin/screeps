@@ -29,12 +29,19 @@ export default class MaintainersController implements GameController {
           }
         });
 
-        if (receivers.length === 0) {
-          return;
-        }
-        const receiver = receivers[0];
-        if (creep.transfer(receiver, RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
-          creep.moveTo(receiver);
+        if (receivers.length > 0) {
+          const receiver = receivers[0];
+          if (creep.transfer(receiver, RESOURCE_ENERGY) === ERR_NOT_IN_RANGE) {
+            creep.moveTo(receiver);
+          }
+        } else {
+          const receiver = creep.room.controller;
+          if (receiver === undefined) {
+            return;
+          }
+          if (creep.upgradeController(receiver) === ERR_NOT_IN_RANGE) {
+            creep.moveTo(receiver);
+          }
         }
       }
     }
